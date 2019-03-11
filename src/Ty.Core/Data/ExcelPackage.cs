@@ -16,7 +16,7 @@ namespace Ty.Core.Data
             throw new NotImplementedException();
         }
 
-        public byte[] GetBytes()
+        public virtual byte[] GetBytes()
         {
             throw new NotImplementedException();
         }

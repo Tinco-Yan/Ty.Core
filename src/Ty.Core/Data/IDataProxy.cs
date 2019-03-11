@@ -24,5 +24,20 @@ namespace Ty.Core.Data
         Dynamic Run(DbTransaction transaction, string sql, CommandType type);
 
         Dynamic Run(DbTransaction transaction, string sql, CommandType type, IList<DbParameter> parameters);
+        Dynamic Export(string sql);
+
+        Dynamic Export(DbTransaction transaction, string sql);
+
+        Dynamic Export(string sql, IList<DbParameter> parameters);
+
+        Dynamic Export(string sql, CommandType type);
+
+        Dynamic Export(string sql, CommandType type, IList<DbParameter> parameters);
+
+        Dynamic Export(DbTransaction transaction, string sql, IList<DbParameter> parameters);
+
+        Dynamic Export(DbTransaction transaction, string sql, CommandType type);
+
+        Dynamic Export(DbTransaction transaction, string sql, CommandType type, IList<DbParameter> parameters);
     }
 }

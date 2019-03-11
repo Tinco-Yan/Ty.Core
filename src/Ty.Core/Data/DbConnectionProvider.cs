@@ -19,7 +19,7 @@ namespace Ty.Core.Data
         {
             Type type = _options.DbConnectionType ?? throw new NullReferenceException(nameof(_options.DbConnectionType));
             string connectionString = _options.ConnectionString ?? throw new NullReferenceException(nameof(_options.ConnectionString));
-
+            
             return Activator.CreateInstance(type, new object[] { connectionString }) as DbConnection;
         }
     }

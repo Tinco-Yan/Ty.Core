@@ -7,6 +7,6 @@ namespace Ty.Core.Data
     public interface IExcelColumn : IDisposable
     {
         void AutoFit();
-        string SetFormat(Type dataType);
+        void SetFormat(Type dataType);
     }
 }

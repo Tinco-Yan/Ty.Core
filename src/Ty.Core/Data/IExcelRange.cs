@@ -8,6 +8,6 @@ namespace Ty.Core.Data
     {
         object Value { get; set; }
 
-        string SetFormat(Type dataType);
+        void SetFormat(Type dataType);
     }
 }
