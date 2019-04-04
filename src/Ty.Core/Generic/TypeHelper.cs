@@ -78,6 +78,8 @@ namespace Ty.Core.Generic
 
         public static Type Dynamic { get; } = typeof(Dynamic);
 
+        public static Type DataTable { get; } = typeof(System.Data.DataTable);
+
         public static Type Type { get; } = typeof(Type);
 
         public static bool IsDynamic(Type type)
@@ -207,6 +209,11 @@ namespace Ty.Core.Generic
                 && type.GetGenericArguments().Length == 1;
         }
 
+        public static bool IsDataTable(Type type)
+        {
+            return type == DataTable;
+        }
+
         public static bool IsGenericList(object value)
         {
             return IsGenericList(value?.GetType());
@@ -214,7 +221,7 @@ namespace Ty.Core.Generic
 
         public static bool IsNull(object value)
         {
-            return value == null && Convert.IsDBNull(value);
+            return value == null || Convert.IsDBNull(value);
         }
 
         public static bool IsType(Type type)

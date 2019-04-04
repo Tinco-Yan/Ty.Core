@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <!-- Required elements-->
+    <id>Ty.Core.DataProxy</id>
+    <version>1.0.1</version>
+    <description>This package provides a simple way to convert the result of a query in ADO.NET to JSON.</description>
+    <authors>Tinco Yan</authors>
+    <license type="file">license.txt</license>
+    <projectUrl>https://github.com/Tinco-Yan/Ty.Core</projectUrl>
+    <!-- Optional elements -->
+    <dependencies>
+      <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="2.2.0" />
+      <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0" />
+      <dependency id="Microsoft.Extensions.Options.ConfigurationExtensions" version="2.2.0" />
+    </dependencies>
+    <!-- ... -->
+  </metadata>
+  <files>
+    <file src="lib\Ty.Core.dll"></file>
+    <file src="license\license.txt"></file>
+  </files>
+</package>

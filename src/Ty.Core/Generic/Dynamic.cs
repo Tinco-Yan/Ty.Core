@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Security;
 using System.Text;
@@ -309,7 +310,7 @@ namespace Ty.Core.Generic
                 this._value = value;
             }
         }
-
+        
         public object Value => _value;
 
         public Type Type => _type;
@@ -334,7 +335,7 @@ namespace Ty.Core.Generic
                 }
             }
         }
-        
+
         public bool IsDictionary
         {
             get => _isDictionary;
@@ -395,8 +396,10 @@ namespace Ty.Core.Generic
         }
 
         public bool IsNull => Value == null && Count == 0;
-
+        
         public bool IsReadonly => _readonly;
+
+        public bool IsDataTable => TypeHelper.IsDataTable(this.Type);
 
         public static Dynamic Parse(string value, Func<string, Dynamic, Dynamic> reviver = null)
         {
@@ -966,6 +969,23 @@ namespace Ty.Core.Generic
                 _value = value,
                 _type = TypeHelper.Type
             };
+        }
+
+        public static implicit operator Dynamic(DataTable value)
+        {
+            return new Dynamic {
+                _value = value,
+                _type = TypeHelper.DataTable
+            };
+        }
+
+        public static implicit operator DataTable(Dynamic value)
+        {
+            if(value?.IsDataTable ?? false)
+            {
+                return value.Value as DataTable;
+            }
+            return null;
         }
 
         #endregion

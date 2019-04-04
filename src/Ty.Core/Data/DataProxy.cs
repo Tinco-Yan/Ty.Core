@@ -86,6 +86,14 @@ namespace Ty.Core.Data
         }
 
         public virtual DbConnection Connection => _dbConnectionProvider.Get();
+        
+        public DbTransaction Transaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
+        {
+            var connection = Connection;
+            connection?.Open();
+
+            return connection?.BeginTransaction(isolationLevel);
+        }
 
         protected virtual DataProcessor DataProcessor => _dataProcessorProvider.Get();
 
@@ -118,6 +126,7 @@ namespace Ty.Core.Data
                 else
                 {
                     command = transaction?.Connection.CreateCommand();
+                    command.Transaction = transaction;
                 }
 
                 command.CommandText = sql;

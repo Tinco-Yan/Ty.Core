@@ -9,6 +9,10 @@ namespace Ty.Core.Data
 {
     public interface IDataProxy
     {
+        DbTransaction Transaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
+
+        DbConnection Connection { get; }
+
         Dynamic Run(string sql);
 
         Dynamic Run(DbTransaction transaction, string sql);
