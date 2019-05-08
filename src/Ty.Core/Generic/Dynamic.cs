@@ -762,6 +762,10 @@ namespace Ty.Core.Generic
             {
                 return Enum.GetName(value.Type, value.Value);
             }
+            else if (value.IsString)
+            {
+                return value.Value.ToString();
+            }
             else if (value.Count > 0)
             {
                 return value.Properties.ToString();
